@@ -1,10 +1,8 @@
 .container {
-    width: auto;
     height: 140px;
     position: relative;
-    top: 220px;
-    margin: 0 auto 40px;
-    /*border: 1px solid #CCC;*/
+    margin-right: 30px;
+    margin-left: 30px;
     -webkit-perspective: 1100px;
     -moz-perspective: 1100px;
     -o-perspective: 1100px;
@@ -39,9 +37,8 @@
 #carousel figure {
     display: block;
     position: absolute;
-    width: 380px;
+    width: 100%;
     height: 116px;
-    left: 10px;
     top: 10px;
     border: 2px solid black;
     line-height: 116px;
