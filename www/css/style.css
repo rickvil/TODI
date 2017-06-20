@@ -1,3 +1,6 @@
+.contentCarousel {
+  background-color: black;
+}
 section, footer, nav {
     display: block;
 }
