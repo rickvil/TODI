@@ -45,12 +45,7 @@ Carousel3D.prototype.modify = function() {
 };
 
 Carousel3D.prototype.transform = function() {
-    console.log("this.radius: " + this.radius);
-    console.log("this.rotateFn: " + this.rotateFn);
-    console.log("this.rotation: " + this.rotation);
-    //var rotate = "360";
     this.element.style[ transformProp ] = 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)';
-    //this.element.style[ transformProp ] = 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + rotate + 'deg)';
 };
 
 var init = function() {
@@ -61,9 +56,9 @@ var init = function() {
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
 
             var base = (distance / 10);
-            var mio = base * base;
+            var squareBase = Math.pow(base, 2);
 
-            var turns = Math.round((mio) / 60 ) * 60;
+            var turns = Math.round(squareBase / 60 ) * 60;
 
             if (direction === 'up'){
                 carousel.rotation += turns;
