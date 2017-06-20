@@ -3,6 +3,7 @@
     position: relative;
     margin-right: 30px;
     margin-left: 30px;
+  	margin-top: 25%;
     -webkit-perspective: 1100px;
     -moz-perspective: 1100px;
     -o-perspective: 1100px;
@@ -43,7 +44,7 @@
     top: 10px;
     border: 2px solid black;
     line-height: 116px;
-    font-size: 80px;
+    font-size: 50px;
     font-weight: bold;
     color: white;
     text-align: center;
