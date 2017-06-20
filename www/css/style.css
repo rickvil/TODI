@@ -1,5 +1,5 @@
 .contentCarousel {
-  background-color: black;
+  background-color: hsl(0, 100%, 7%);
 }
 section, footer, nav {
     display: block;
