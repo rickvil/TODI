@@ -1,4 +1,5 @@
 var transformProp = Modernizr.prefixed('transform');
+var initializate = false;
 
 function Carousel3D ( el ) {
     this.element = el;
@@ -45,7 +46,42 @@ Carousel3D.prototype.modify = function() {
 };
 
 Carousel3D.prototype.transform = function() {
-    this.element.style[ transformProp ] = 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)';
+  var entero = Math.floor(this.rotation / 360 ) * 360;
+  var rotat = this.rotation - entero;
+  this.element.style[ transformProp ] = 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)';
+
+  var msgOption = "";
+  if (rotat == 0){
+    msgOption = "SOLO TOMA el jugador que lanzo.";
+    console.log(msgOption);
+  }
+  if (rotat == 300){
+    msgOption = "El jugador que lanzo OBLIGA a otro jugador a servirse.";
+    console.log(msgOption);
+  }
+  if (rotat == 240){
+    msgOption = "El jugador que está a la DERECHA del jugador que lanzo se sirve.";
+    console.log(msgOption);
+  }
+  if (rotat == 180){
+    msgOption = "El jugador que está a la IZQUIERDA del jugador que lanzo se sirve.";
+    console.log(msgOption);
+  }
+  if (rotat == 120){
+    msgOption = "Todos TOMAN menos el jugador que lanzo.";
+    console.log(msgOption);
+  }
+  if (rotat == 60){
+    msgOption = "TODOS TOMAMOS hasta el fondo.";
+    console.log(msgOption);
+  }
+  setTimeout( function(){
+    if (initializate){
+      $("#msgOption").text(msgOption);
+      $("#msgWelcome").text("");
+    }
+  }, 1000);
+
 };
 
 var init = function() {
@@ -68,11 +104,14 @@ var init = function() {
                 carousel.rotation -= turns;
                 carousel.transform();
             }
+          initializate = true;
         }
     });
 
     carousel.panelCount = 6;
     carousel.modify();
+    $("#msgOption").text("Bienvenido a TODI!!");
+    $("#msgWelcome").text("Gira la ruleta y Juega con Responsabilidad.");
 
     setTimeout( function(){
         document.body.addClassName('ready');
